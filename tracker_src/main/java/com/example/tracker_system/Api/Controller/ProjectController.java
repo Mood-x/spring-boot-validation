@@ -44,7 +44,7 @@ public class ProjectController {
     }
 
     @PutMapping("/{index}/update")
-    public ResponseEntity updateProject(@Valid @PathVariable int index, @RequestBody Project project, Errors err){
+    public ResponseEntity updateProject(@PathVariable int index, @Valid @RequestBody Project project, Errors err){
         if(err.hasErrors()){
 
             String message = err.getFieldError().getDefaultMessage();
@@ -56,7 +56,7 @@ public class ProjectController {
     }
 
     @DeleteMapping("/{index}/delete")
-    public ResponseEntity deleteProject(@Valid @PathVariable int index){
+    public ResponseEntity deleteProject(@PathVariable int index){
         Project project = projects.get(index);
 
         if(projects.isEmpty()){
